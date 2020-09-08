@@ -1,6 +1,6 @@
 from jugadorTriqui import mejorJugada
 from heuristica import buscarGanar
-from util import imprimirMatriz,turnoJugador,disponibles
+from util import imprimirMatriz,turnoJugador,disponibles,jugadaAleatoria
 
 triqui= [['N' for i in range(3)]for j in range(3)]
 
@@ -11,8 +11,13 @@ triqui2=[['X','O','O'],
 
 
 ganador = False
+con = 0
 while(not ganador):
-	triqui = mejorJugada(triqui)
+	if (con > 0):
+		triqui = mejorJugada(triqui)
+	else:
+		triqui = jugadaAleatoria(triqui)
+		con += 1
 	if(buscarGanar(triqui,'X') == 1 or disponibles(triqui)==0):
 		ganador = True
 		break

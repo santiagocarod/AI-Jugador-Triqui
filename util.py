@@ -1,3 +1,5 @@
+import random
+
 def imprimirMatriz(juego):
 	print("  A B C")
 	for i in range(3):
@@ -51,4 +53,10 @@ def turnoJugador(juego):
 	print("En que casilla quieres jugar? (EJ: A1)")
 	jugada = input()
 	juego = jugar(juego,jugada)
+	return juego
+
+def jugadaAleatoria(juego):
+	fila = random.randint(0,2)
+	columna = random.randint(0,2)
+	juego[fila][columna] = 'X'
 	return juego
